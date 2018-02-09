@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="css/calendar.css">
+    <!--vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="vue-app">
+    <div id="calendar">
+        <p>{{selectDate}}</p>
+        <table id="tab" cellspacing="1" cellpadding="1" style="width:100%; margin: 0px auto; text-align: center;">
+            <tr>
+                <th>日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th>六</th>
+            </tr>
+            <tr v-for="(list,index) in monthDate">
+                <td v-for="(item,value) in list">
+                        <span class="showDay" v-if="item > 0" style="cursor: pointer" @click="changeItemColor(index*7+value)" v-bind:class="{'blueColor':(index*7+value) == selectIndex}">
+                            {{item}}
+                        </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="js/calendar.js"></script>
+</body>
+</html>
