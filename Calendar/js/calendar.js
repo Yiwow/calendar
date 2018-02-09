@@ -159,20 +159,8 @@ var app = new Vue({
         },
     },
     created:function () {
-        //获取用户信息
-
         //获取当前月当前天的数据
         var date=new Date();
-        //获取当日信息
-        var year = date.getFullYear();
-        var month = date.getMonth()+1;
-        var day = date.getDate();
-        if (month <10){
-            month = "0"+month;
-        }
-        if (day < 10){
-            day = "0"+day;
-        }
         //初始化日历
         this.initCalendarData(date);
     }
